@@ -1,6 +1,6 @@
-import { updateDoc, getDoc, doc } from 'firebase/firestore';
+import { updateDoc, getDoc, doc, deleteDoc } from 'firebase/firestore';
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-web';
 import styles from './style';
@@ -14,6 +14,17 @@ function EditCScreen({navigation, route}) {
   const [email, setEmail] = useState(contato.email);
   const [numero, setNumero] = useState(contato.numero);
   
+    const deleteContato = async (contatoID) =>{
+    try {
+      await deleteDoc(doc(db, "contato", contatoID));
+      
+      alert("Contato excluído com sucesso!");
+      navigation.navigate('Home', {user:user});
+  } catch (e) {
+    alert("Houve um erro ao tentar excluir essa área. Tente novamente. Se persistir o erro, contate o suporte.")
+    console.error("Erro ao excluir area: ", e);
+    }
+  }
 
   const updateContato = async () => {
 
@@ -56,6 +67,9 @@ function EditCScreen({navigation, route}) {
           </View>
 
           <Button style={styles.Button} title="Salvar Alterações" onPress={updateContato}/>
+           <TouchableOpacity style={[styles.btn, styles.btnDanger]} onPress={() => deleteContato(contato.id)}>
+                <Text style={[styles.btnText, styles.btnPrimaryText]}>Excluir</Text>
+              </TouchableOpacity>
           <Button style={styles.Button} title="Voltar" onPress={() => navigation.navigate('Home', {user:user})}/>
         </View>
       </View>

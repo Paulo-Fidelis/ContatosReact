@@ -34,6 +34,7 @@ function LoginScreen({navigation}) {
     } catch (err) {
       console.log("ERROR: ", err);
       alert("Houve um erro. Contate o suporte.");
+      navigation.navigate('Login')
     }
   };
  return (

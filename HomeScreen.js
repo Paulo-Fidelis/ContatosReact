@@ -1,9 +1,12 @@
+import { collection, getDocs, query} from 'firebase/firestore';
 import React, {useState, useEffect} from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-web';
 import { ListItem} from 'react-native-elements';
+import { Ionicons } from '@expo/vector-icons';
+import AntDesign from '@expo/vector-icons/AntDesign'
 import styles from './style';
-
+import { db } from './firebase'
 
 function HomeScreen({ navigation, route}) {
   const { user } = route.params;

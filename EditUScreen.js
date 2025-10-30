@@ -1,6 +1,6 @@
 import { updateDoc, getDoc, doc } from 'firebase/firestore';
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { Button, Input } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-web';
 import styles from './style';

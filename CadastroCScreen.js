@@ -40,12 +40,12 @@ return (
 
         <View style={styles.InputContainer}>
           <Text style={styles.Label}>Nome: </Text>
-          <Input inputContainerStyle={{ borderBottomWidth: 0 }} containerStyle={{ paddingHorizontal: 0, marginTop: 0, marginBottom: 0}} style={styles.Input} placeholder="Carlos Alberto" value={nome} onChangeText={setNome} secureTextEntry={true} />
+          <Input inputContainerStyle={{ borderBottomWidth: 0 }} containerStyle={{ paddingHorizontal: 0, marginTop: 0, marginBottom: 0}} style={styles.Input} placeholder="Carlos Alberto" value={nome} onChangeText={setNome}/>
         </View>
       
       <View style={styles.InputContainer}>
           <Text style={styles.Label}>Telefone: </Text>
-          <Input inputContainerStyle={{ borderBottomWidth: 0 }} containerStyle={{ paddingHorizontal: 0, marginTop: 0, marginBottom: 0}} style={styles.Input} placeholder="81 9 9999-9999" value={telefone} onChangeText={setTelefone} secureTextEntry={true} />
+          <Input inputContainerStyle={{ borderBottomWidth: 0 }} containerStyle={{ paddingHorizontal: 0, marginTop: 0, marginBottom: 0}} style={styles.Input} placeholder="81 9 9999-9999" value={telefone} onChangeText={setTelefone}/>
         </View>
 
         <Button style={styles.Button} title="Cadastrar" onPress={saveContato}/>

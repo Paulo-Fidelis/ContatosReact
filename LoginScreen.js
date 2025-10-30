@@ -23,14 +23,12 @@ function LoginScreen({navigation}) {
 
       const querySnapshot = await getDocs(q);
 
-      if (!querySnapshot.empty) {
+      if(querySnapshot) {
         querySnapshot.forEach((doc) => {
           navigation.navigate('Home', {user: {id: doc.id, ...doc.data()}});
           }
 
-        )} else {
-        alert("E-mail ou senha incorretos!");
-      }
+        )} 
     } catch (err) {
       console.log("ERROR: ", err);
       alert("Houve um erro. Contate o suporte.");

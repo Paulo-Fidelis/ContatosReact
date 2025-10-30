@@ -12,7 +12,7 @@ function EditCScreen({navigation, route}) {
   const { contato, user } = route.params;
   const [nome, setNome] = useState(contato.nome);
   const [email, setEmail] = useState(contato.email);
-  const [numero, setNumero] = useState(contato.numero);
+  const [telefone, setTelefone] = useState(contato.telefone);
   
     const deleteContato = async (contatoID) =>{
     try {
@@ -32,7 +32,7 @@ function EditCScreen({navigation, route}) {
     const contatoRef =  await doc(db, "contato", contato.id);
       
     if(contatoRef){
-        await updateDoc(contatoRef, {nome,email,numero});
+        await updateDoc(contatoRef, {nome,email,telefone});
 
         alert('Alterações feitas!');
         navigation.navigate('Home', {user:user});
@@ -63,7 +63,7 @@ function EditCScreen({navigation, route}) {
 
           <View style={styles.InputContainer}>
             <Text style={styles.Label}>Numero: </Text>
-            <Input inputContainerStyle={{ borderBottomWidth: 0 }} containerStyle={{ paddingHorizontal: 0, marginTop: 0, marginBottom: 0}} style={styles.Input} placeholder="81 9 9999-9999" value={numero} onChangeText={setNumero} />
+            <Input inputContainerStyle={{ borderBottomWidth: 0 }} containerStyle={{ paddingHorizontal: 0, marginTop: 0, marginBottom: 0}} style={styles.Input} placeholder="81 9 9999-9999" value={telefone} onChangeText={setTelefone} />
           </View>
 
           <Button style={styles.Button} title="Salvar Alterações" onPress={updateContato}/>

@@ -68,7 +68,7 @@ function HomeScreen({ navigation, route}) {
 
       <ListItem.Content>
         <ListItem.Title style={{ fontSize: 20}}>{item.nome}</ListItem.Title>
-        <ListItem.Title>{item.numero}</ListItem.Title>
+        <ListItem.Title>{item.telefone}</ListItem.Title>
         <ListItem.Title>{item.email}</ListItem.Title>
       </ListItem.Content>
         <View style={{ alignItems: 'flex-end' }}>
